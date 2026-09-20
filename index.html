@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Animated general-purpose secure login screen">
+  <title>Nexus | Sign In</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell" aria-label="Nexus account access portal">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="brand" aria-label="Nexus">
+        <svg class="brand-mark" viewBox="0 0 80 80" role="img" aria-label="Nexus logo">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#0f82d8"/></linearGradient></defs>
+          <path fill="url(#g)" d="M31 7h18v18h10a8 8 0 0 1 8 8v34a8 8 0 0 1-8 8H21a8 8 0 0 1-8-8V33a8 8 0 0 1 8-8h10V7Z"/>
+          <path fill="#fff" opacity=".95" d="M34 10h12v22l14 25a8 8 0 0 1-7 12H27a8 8 0 0 1-7-12l14-25V10Z"/>
+          <path fill="#0f82d8" opacity=".82" d="M25 54h30l5 9a4 4 0 0 1-4 6H24a4 4 0 0 1-4-6l5-9Z"/>
+          <circle cx="34" cy="59" r="3" fill="#fff" opacity=".8"/><circle cx="45" cy="62" r="2" fill="#fff" opacity=".65"/>
+        </svg>
+        <div class="brand-name"><strong>NEXUS</strong><span>WORKSPACE</span></div>
+      </div>
+
+      <div class="hero-copy">
+        <p class="eyebrow">Your digital workspace</p>
+        <h1 id="hero-title">Everything you need, one sign-in away.</h1>
+        <p>A clean, secure access point for your apps, projects, teams and everyday work — designed to feel fast, focused and effortless.</p>
+        <div class="trust-row" aria-label="Platform highlights">
+          <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4m5-3.5V12c0 5-3.5 8-8 9.5C7.5 20 4 17 4 12V6.5L12 3l8 3.5Z"/></svg>Secure access</span>
+          <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M4 19V9m6 10V5m6 14v-7m4 7H2"/></svg>Fast &amp; responsive</span>
+          <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 3v4l-4 8a4 4 0 0 0 3.6 6h8.8a4 4 0 0 0 3.6-6l-4-8V3M7 12h10M7 3h10"/></svg>Privacy focused</span>
+        </div>
+      </div>
+      <small class="copyright">© <span id="year"></span> Nexus. All rights reserved.</small>
+    </section>
+
+    <section class="content">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme" title="Change theme">
+        <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-width="1.8" d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/><circle cx="12" cy="12" r="4" stroke-width="1.8"/></svg>
+        <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"/></svg>
+      </button>
+
+      <div class="steps single-step">
+        <div class="step active login-only" id="loginStep" aria-hidden="false">
+          <span class="kicker">Secure account access</span>
+          <h2>Welcome back</h2>
+          <p class="intro">Sign in to continue to your workspace. Your session stays protected across supported devices.</p>
+
+          <form id="loginForm" novalidate>
+            <div class="field">
+              <div class="label-row"><label for="username">Email or username</label></div>
+              <div class="field-wrap">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 21a8 8 0 0 0-16 0m8-10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/></svg>
+                <input id="username" name="username" type="text" autocomplete="username" placeholder="you@example.com" required>
+              </div>
+            </div>
+            <div class="field">
+              <div class="label-row"><label for="password">Password</label></div>
+              <div class="field-wrap">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 10V8a5 5 0 0 1 10 0v2m-11 0h12v10H6V10Z"/></svg>
+                <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required minlength="6">
+                <button class="password-toggle" id="passwordToggle" type="button" aria-label="Show password">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.5" stroke-width="1.8"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="form-meta">
+              <label class="remember"><input type="checkbox" name="remember">Keep me signed in</label>
+              <a href="#" id="forgotLink">Forgot password?</a>
+            </div>
+            <div class="error" id="formError" role="alert" aria-live="polite"></div>
+            <button class="btn btn-primary btn-block" id="loginBtn" type="submit"><span class="spinner" aria-hidden="true"></span><span class="button-label">Sign in</span><svg class="button-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 18 6-6-6-6"/></svg></button>
+          </form>
+
+          <div class="login-footer">
+            <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 10V8a5 5 0 0 1 10 0v2m-11 0h12v10H6V10Z"/></svg>Encrypted connection</span>
+            <span class="dot">•</span>
+            <a href="#" id="helpLink">Need help?</a>
+          </div>
+          <p class="demo-note">Demo interface: use any username and a password with at least <code>6 characters</code>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12 4 4L19 6"/></svg>
+    <span>Sign-in validated. Connect this form to your authentication API.</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
